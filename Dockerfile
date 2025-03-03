@@ -22,4 +22,4 @@ RUN pip install -r requirements.txt && \
     pip cache purge
 
 # 6. Cleanup
-RUN rm -rf fonts scripts .env* .git* Dockerfile License *.md *.txt srun* update*
+RUN rm -rf fonts scripts .env* .git* Dockerfile License *.md requirements srun* update*
