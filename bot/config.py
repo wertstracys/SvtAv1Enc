@@ -33,7 +33,9 @@ class Config:
             self.BOT_TOKEN = config("BOT_TOKEN")
             self.CACHE_DL = config("CACHE_DL", default=True, cast=bool)
             self.CAP_DECO = config("CAP_DECO", default="🏖️")
-            self.C_LINK = config("C_LINK", default="[QVA-FLiX](https://t.me/+5xwnumOZwCMwYTRh)")
+            self.C_LINK = config(
+                "C_LINK", default="[QVA-FLiX](https://t.me/+5xwnumOZwCMwYTRh)"
+            )
             self.CMD_SUFFIX = config("CMD_SUFFIX", default=str())
             self.COMP_MODE = config("COMPATIBILITY_MODE", default=True, cast=bool)
             self.CUSTOM_RENAME = config("CUSTOM_RENAME", default=None)
@@ -60,7 +62,10 @@ class Config:
             self.FINISHED_PROGRESS_STR = config("FINISHED_PROGRESS_STR", default="🧡")
             self.FL_CAP = config("FILENAME_AS_CAPTION", default=False, cast=bool)
             self.FS_THRESHOLD = config("FLOOD_SLEEP_THRESHOLD", default=600, cast=int)
-            self.FSTICKER = config("FSTICKER", default="CAACAgUAAx0CbRJSKwABAmBIZ7PIZ2qqbl6d1ActhLacXmwH-oYAAhoDAAIX8Dw_8wpGlQuEOsM2BA")
+            self.FSTICKER = config(
+                "FSTICKER",
+                default="CAACAgUAAx0CbRJSKwABAmBIZ7PIZ2qqbl6d1ActhLacXmwH-oYAAhoDAAIX8Dw_8wpGlQuEOsM2BA",
+            )
             self.LOCK_ON_STARTUP = config("LOCK_ON_STARTUP", default=False, cast=bool)
             self.LOG_CHANNEL = config("LOG_CHANNEL", default=0, cast=int)
             self.LOGS_IN_CHANNEL = config("LOGS_IN_CHANNEL", default=True, cast=bool)
@@ -87,7 +92,9 @@ class Config:
             self.TELEGRAPH_API = config(
                 "TELEGRAPH_API", default="https://api.telegra.ph"
             )
-            self.TELEGRAPH_AUTHOR = config("TELEGRAPH_AUTHOR", default="QVA-FLiX|https://t.me/+5xwnumOZwCMwYTRh")
+            self.TELEGRAPH_AUTHOR = config(
+                "TELEGRAPH_AUTHOR", default="QVA-FLiX|https://t.me/+5xwnumOZwCMwYTRh"
+            )
             self.TEMP_USER = config("TEMP_USERS", default=str())
             self.TG_DL_CLIENT = config("TG_DL_CLIENT", default="pyrogram")
             self.TG_UL_CLIENT = config("TG_UL_CLIENT", default="pyrogram")
