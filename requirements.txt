@@ -8,7 +8,7 @@ feedparser
 html_telegraph_poster
 humanize
 lxml[html_clean]
-telethon
+telethon==1.38
 tgcrypto
 psutil
 pycountry
