@@ -54,7 +54,7 @@ class Config:
             self.FCODEC = config("FCODEC", default=None)
             self.FFMPEG = config(
                 "FFMPEG",
-                default='ffmpeg -i "{}" -map 0:v:0 -map 0:a? -map 0:s? -map 0:t? -vf "scale=1280:-2:flags=bicubic:param0=0:param1=1/2" -c:v libsvtav1 -preset 8 -pix_fmt yuv420p10le -crf 32 -svtav1-params "tune=2:psy-rd=1.0:keyint=10s:tile-columns=1" -c:a libopus -b:a 128k -ac 2 "{}" -y',
+                default='ffmpeg -hide_banner -i "{}" -map 0:v -map 0:a? -map 0:s? -vf "scale=1280:-2:flags=bicubic:param0=0:param1=1/2" -c:v libsvtav1 -preset 6 -crf X -g 241 -pix_fmt yuv420p10le -svtav1-params "lp=2:tune=3:psy-rd=0.5:hierarchical-levels=4:tile-columns=1:film-grain=X" -c:a libopus -b:a 64k -ac 2 -c:s copy "{}" -y',
             )
             self.FFMPEG2 = config("FFMPEG2", default=None)
             self.FFMPEG3 = config("FFMPEG3", default=None)
