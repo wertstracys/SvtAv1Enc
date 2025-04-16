@@ -283,7 +283,7 @@ class Downloader:
                 download = await self.progress_for_qbit()
                 if not download:
                     break
-                if download.state == "pausedUP":
+                if download.state in ("pausedUP", "stoppedUP"):
                     break
             await self.wait()
             self.un_register()
@@ -503,7 +503,7 @@ class Downloader:
                 download = None
                 return await self.clean_download()
             ud_type = "`..................`"
-            if download.state == "pausedUP":
+            if download.state in ("pausedUP", "stoppedUP"):
                 return download
             elif download.state == "checkingResumeData":
                 ud_type = "`Starting Download…`"
@@ -513,6 +513,9 @@ class Downloader:
                 file_name = (os.path.split(self.file_name))[1]
                 ud_type = f"**Downloading:**\n`{file_name}`"
                 ud_type += "\n**via:** Torrent."
+            else:
+                # debug
+                await logger(e=download.state)
             total = download.size
             current = download.completed
             speed = download.dlspeed
