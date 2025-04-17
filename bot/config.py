@@ -54,7 +54,7 @@ class Config:
             self.FCODEC = config("FCODEC", default=None)
             self.FFMPEG = config(
                 "FFMPEG",
-                default='ffmpeg -hide_banner -i "{}" -map 0:v -map 0:a? -map 0:s? -vf "scale=1280:-2:flags=bicubic:param0=0:param1=1/2" -c:v libsvtav1 -preset 6 -crf X -g 241 -pix_fmt yuv420p10le -svtav1-params "lp=2:tune=3:psy-rd=0.5:hierarchical-levels=4:tile-columns=1:film-grain=X" -c:a libopus -b:a 64k -ac 2 -c:s copy "{}" -y',
+                default='ab-av1 auto-encode -i "{}" -e libsvtav1 --svt psy-rd=0.5:hierarchical-levels=4:tile-columns=0:film-grain=0 --preset 8 --vfilter scale=1280:-2:flags=bicubic:param0=0:param1=1/2 --min-vmaf 89 -o "{}"',
             )
             self.FFMPEG2 = config("FFMPEG2", default=None)
             self.FFMPEG3 = config("FFMPEG3", default=None)
@@ -70,7 +70,7 @@ class Config:
             self.LOG_CHANNEL = config("LOG_CHANNEL", default=0, cast=int)
             self.LOGS_IN_CHANNEL = config("LOGS_IN_CHANNEL", default=False, cast=bool)
             self.MI_CAP = config("MI_IN_CAPTION", default=True, cast=bool)
-            self.MUX_ARGS = config("MUX_ARGS", default=None)
+            self.MUX_ARGS = config("MUX_ARGS", default='-map 0 -c:v copy -c:a libopus -b:a 96k -ac 2')
             self.NO_BANNER = config("NO_BANNER", default=False, cast=bool)
             self.NO_TEMP_PM = config("NO_TEMP_PM", default=False, cast=bool)
             self.OVR = config("OVR", default=None)
